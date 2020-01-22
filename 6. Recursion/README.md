@@ -150,3 +150,5 @@ function collectOddValues(arr) {
   return newArr;
 }
 ```
+
+Check the examples inside the `extra` directory for more advanced examples.

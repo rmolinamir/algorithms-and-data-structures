@@ -247,3 +247,5 @@ function search(array, val) {
 ```
 
 Time Complexity is `O(log n)`.
+
+Check the examples inside the `extra` directory for more advanced examples.
