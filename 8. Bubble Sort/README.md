@@ -99,3 +99,7 @@ console.log(bubbleSort([37, 45, 29, 8])); // [8, 29, 37, 45]
 
 console.log(bubbleSort([8, 7, 1, 2, 3, 4, 5, 6])); // [1, 2, 3, 4, 5, 6, 7, 8]
 ```
+
+## Bubble Sort Time Complexity
+
+In general, it's `O(n^2)` because we have a nested loop and we're roughly making a comparison for each item in the array. However, if the data is nearly sorted, it's practically linear time `O(n)` because we break out of the loop once we detect no more swaps are necessary.
