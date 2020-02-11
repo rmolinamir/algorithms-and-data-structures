@@ -6,7 +6,7 @@
  * @param {Number[]} arr1 - Array of sorted numbers.
  * @param {Number[]} arr2 - Array of sorted numbers.
  */
-function merge(arr1, arr2) {
+function merge(arr1 = [], arr2 = []) {
   // - Create an empty array, take a look at the smallest values in each input array.
   const arr = [];
   let i = 0; // arr1 loop counter.

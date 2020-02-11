@@ -77,3 +77,42 @@ console.log(merge([1, 10, 50], [2, 14, 99, 100])); // [1, 2, 10, 14, 50, 99, 100
 - Break up the array into halves until you have arrays that are empty or have on element.
 - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array.
 - Once the array has been merged back together, return the merged (and sorted!) array.
+
+```js
+/**
+ * Decomposing an array into smaller arrays of 0 or 1 elements
+ * (divide and conquer approach), then building up a newly
+ * sorted array
+ * @param {Number[]} arr - Unsorted array of numbers.
+ */
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  const half = Math.floor(arr / 2);
+  return merge(mergeSort(arr.slice(0, half)), mergeSort(arr.slice(half)));
+}
+```
+
+![merge sort visual breakdown](https://i.imgur.com/tLDCGx5.png "Merge Sort Visual Breakdown")
+
+## Merge Sorte Big O
+
+The best case, worst case, and average case for time complexities are always `O(n * log n)`. space complexity is of `O(n)`.
+
+Merge sort has no edge case, it doesn't care how the array is initially structure. Because of this, merge sort will always be of `O(n * log n)`. But why is it `n * log n`?
+
+If we start with an array of 8 elements, we have to split it into 2 arrays, so that's one decomposition. These two arrays are split into 2 more arrays, and so on and on until we reach arrays of 1 or 0 elements.
+
+For an array of 32 values, we would do the following operations:
+
+```js
+32
+16 16
+8 8 8 8
+4 4 4 4 4 4 4 4
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+```
+
+When `n` was 32, we have 5 splits. If `n` was 8, we'd have 3 splits. This is `log n`. As we are decomposing the array logarithmically, we do `O(n)` operations when we're doing the merges. So in total, we end up with `O(n * log n)`.
+
+As for the space complexity, merge sort takes up a lot more space than previous sorts such as bubble sort - which makes it a tradeoff.
