@@ -94,7 +94,7 @@ function mergeSort(arr) {
 
 ![merge sort visual breakdown](https://i.imgur.com/tLDCGx5.png "Merge Sort Visual Breakdown")
 
-## Merge Sorte Big O
+## Merge Sort Big O
 
 The best case, worst case, and average case for time complexities are always `O(n * log n)`. space complexity is of `O(n)`.
 

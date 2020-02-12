@@ -34,7 +34,7 @@ function merge(arr1 = [], arr2 = []) {
 /**
  * Decomposing an array into smaller arrays of 0 or 1 elements
  * (divide and conquer approach), then building up a newly
- * sorted array
+ * sorted array.
  * @param {Number[]} arr - Unsorted array of numbers.
  */
 function mergeSort(arr) {
