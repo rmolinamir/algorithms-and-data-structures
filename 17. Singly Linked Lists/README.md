@@ -161,3 +161,115 @@ unshift(val) {
   return this;
 }
 ```
+
+### Get
+
+Retrieves a `Node` by it's position in the Singly Linked List. Function that should accept an index. If the index is less than 0 or greater than or equal to the `length` of the list, return `null`. Loop through the list until you reach the index and return the `Node` at that specific index.
+
+```js
+/**
+ * Retrieving a `Node` by it's position in the Singly Linked List.
+ * @param {Number} index - Position of the `Node`.
+ * @returns {Node | null} - Found `Node` if any, else null.
+ */
+get(index) {
+  if (
+    index < 0 ||
+    index >= this.length
+  ) {
+    return null;
+  }
+  let i = 0;
+  let current = this.head;
+  while (i !== index) {
+    current = current.next;
+    i += 1;
+  }
+  return current;
+}
+```
+
+### Set
+
+Changes the **value** of a `Node` based on the position in the Linked List. This function should accept a value and an index. It uses the `get` function to find the specific node. If the node is not found, it returns `false`. If the node is found, it updates its value and then returns `true`.
+
+```js
+/**
+ * Changing the value of a `Node` based on the position in the Linked List.
+ * @param {Number} index - Position of the Node`.
+ * @param {any} val - Value to be set on the found `Node`.
+ * @returns {Boolean} - Returns `true` if the `Node` was found, `false` otherwise.
+ */
+set(index, val) {
+  const node = this.get(index);
+  if (node) {
+    node.val = val;
+    return true;
+  }
+  return false;
+}
+```
+
+### Insert
+
+Adds a `Node` to the Linked List at a **specific** position. If the index is less than zero or greater than the length, return `false`. If the index is same as the length, push a new `Node` to the end of the list. If the index is equal to 0, unshift a new `Node` to the start of the list. Then return `true`.
+
+```js
+/**
+ * Adding a `Node` to the Singly Linked List at a specific position.
+ * @param {Number} index - Position of the Node`.
+ * @param {any} val - Value to be set on the found `Node`.
+ * @returns {Boolean} - Returns `true` if the index is valid, `false` otherwise.
+ */
+insert(index, val) {
+  if (index === this.length) {
+    this.push(val);
+    return true;
+  }
+  if (index === 0) {
+    this.unshift(val);
+    return true;
+  }
+  const prevNode = this.get(index - 1);
+  if (prevNode) {
+    const newNode = new Node(val);
+    newNode.next = prevNode.next;
+    prevNode.next = newNode;
+    this.length += 1;
+    return true;
+  }
+  return false;
+}
+```
+
+### Remove
+
+Removes a `Node` from the Singly Linked List at a **specific** position. If the index is less than zero, or greater than the `length` of the list, return `undefined`. If the index is zero, then `shift` will be returned. If the index is the same as the `length`, then `pop` will be returned. Otherwise, with the `get` method, the `Node` at `index - 1` will be accessed, and it will be wired to the `Node` that is ahead of the soon-to-be removed `Node` at position index (`index + 1`). After, it decrements the `length`, then the value of the removed `Node` is returned.
+
+```js
+/**
+ * Removing a `Node` from the Singly Linked List at a specific position.
+ * @param {Number} index - Position of the `Node` to be removed.
+ * @returns {any | undefined} - Removed `Node` value if valid, otherwise `undefined`.
+ */
+remove(index) {
+  if (
+    index < 0 ||
+    index >= this.length
+  ) {
+    return undefined;
+  }
+  if (index === this.length - 1) {
+    return this.pop();
+  }
+  if (index === 0) {
+    return this.shift();
+  }
+  const prevNode = this.get(index - 1);
+  const removedNode = prevNode.next;
+  const nextNode = removedNode.next;
+  prevNode.next = nextNode;
+  this.length -= 1;
+  return removedNode.val;
+}
+```

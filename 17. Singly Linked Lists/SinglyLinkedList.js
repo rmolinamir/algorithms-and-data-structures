@@ -33,6 +33,10 @@ class SinglyLinkedList {
     this.pop = this.pop.bind(this);
     this.shift = this.shift.bind(this);
     this.unshift = this.unshift.bind(this);
+    this.get = this.get.bind(this);
+    this.set = this.set.bind(this);
+    this.insert = this.insert.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   /**
@@ -117,6 +121,95 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
+
+  /**
+   * Retrieving a `Node` by it's position in the Singly Linked List.
+   * @param {Number} index - Position of the `Node`.
+   * @returns {Node | null} - Found `Node` if any, else null.
+   */
+  get(index) {
+    if (
+      index < 0 ||
+      index >= this.length
+    ) {
+      return null;
+    }
+    let i = 0;
+    let current = this.head;
+    while (i !== index) {
+      current = current.next;
+      i += 1;
+    }
+    return current;
+  }
+
+  /**
+   * Changing the value of a `Node` based on the position in the Linked List.
+   * @param {Number} index - Position of the Node`.
+   * @param {any} val - Value to be set on the found `Node`.
+   * @returns {Boolean} - Returns `true` if the `Node` was found, `false` otherwise.
+   */
+  set(index, val) {
+    const node = this.get(index);
+    if (node) {
+      node.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Adding a `Node` to the Singly Linked List at a specific position.
+   * @param {Number} index - Position of the Node`.
+   * @param {any} val - Value to be set on the found `Node`.
+   * @returns {Boolean} - Returns `true` if the index is valid, `false` otherwise.
+   */
+  insert(index, val) {
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+    if (index === 0) {
+      this.unshift(val);
+      return true;
+    }
+    const prevNode = this.get(index - 1);
+    if (prevNode) {
+      const newNode = new Node(val);
+      newNode.next = prevNode.next;
+      prevNode.next = newNode;
+      this.length += 1;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Removing a `Node` from the Singly Linked List at a specific position.
+   * @param {Number} index - Position of the `Node` to be removed.
+   * @returns {any | undefined} - Removed `Node` value if valid, otherwise `undefined`.
+   */
+  remove(index) {
+    if (
+      index < 0 ||
+      index >= this.length
+    ) {
+      return undefined;
+    }
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    if (index === 0) {
+      return this.shift();
+    }
+    const prevNode = this.get(index - 1);
+    const removedNode = prevNode.next;
+    const nextNode = removedNode.next;
+    prevNode.next = nextNode;
+    this.length -= 1;
+    return removedNode.val;
+  }
 }
 
 const singlyLinkedList = new SinglyLinkedList();
+
