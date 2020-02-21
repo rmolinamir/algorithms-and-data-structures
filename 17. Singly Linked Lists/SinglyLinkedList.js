@@ -1,10 +1,7 @@
-// Piece of data - val
-// Reference to next node - next
-
 /**
  * Nodes for the `SinglyLinkedList` class.
- * @member {Node} val - `Node` value.
- * @member {Node} next - Next `Node`.
+ * @member {Node} val - Piece of data.
+ * @member {Node} next - Referene ot the next `Node`.
  */
 class Node {
   /**
@@ -37,6 +34,7 @@ class SinglyLinkedList {
     this.set = this.set.bind(this);
     this.insert = this.insert.bind(this);
     this.remove = this.remove.bind(this);
+    this.reverse = this.reverse.bind(this);
   }
 
   /**
@@ -209,7 +207,30 @@ class SinglyLinkedList {
     this.length -= 1;
     return removedNode.val;
   }
+
+  /**
+   * Reverse the Singly Linked List in place.
+   * @returns {SinglyLinkedList} - SinglyLinkedList
+   */
+  reverse() {
+    if (this.length === 0) {
+      return this;
+    }
+    // Reversing the next properties:
+    let currentNode = this.head;
+    let prevNode = currentNode;
+    let nextNode = currentNode.next;
+    currentNode.next = null;
+    while(nextNode) {
+      currentNode = nextNode;
+      nextNode = nextNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+    };
+    // Swap head and tail:
+    const newTail = this.head;
+    this.head = this.tail;
+    this.tail = newTail;
+    return this;
+  }
 }
-
-const singlyLinkedList = new SinglyLinkedList();
-
