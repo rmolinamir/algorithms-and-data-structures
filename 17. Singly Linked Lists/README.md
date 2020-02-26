@@ -44,7 +44,7 @@ Linked lists contain a head, a tail and a length property. They consists of node
 /**
  * Nodes for the `SinglyLinkedList` class.
  * @member {Node} val - Piece of data.
- * @member {Node} next - Referene ot the next `Node`.
+ * @member {Node} next - Referene to the next `Node`.
  */
 class Node {
   /**
@@ -291,7 +291,7 @@ class Node {
   /**
    * Node class constructor.
    * @member {Node} val - Piece of data.
-   * @member {Node} next - Referene ot the next `Node`.
+   * @member {Node} next - Referene to the next `Node`.
    */
   constructor(val) {
     this.val = val;

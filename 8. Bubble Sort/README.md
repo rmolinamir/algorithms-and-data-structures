@@ -39,7 +39,7 @@ function compareByLength(str1, str2) {
 
 ## Bubble Sort Algorithm
 
-It's a sorting algorithm where the largest values "bubble" (more accurately, move, or swap) up to the top. It's not that efficient or commonly used except in one use case where it does excel, but generally it's not a life changing algorithm to know. The case where it does excel, is when we know the array to be sorted is very possibly *almost* sorted, but this is not the only sorting method which excels in this scenario.
+It's a sorting algorithm where the largest values "bubble" (more accurately, move, or swap) up to the top. It's not that efficient or commonly used except in one use case where it does excel, but generally it's not a life changing algorithm to know. The case where it does excel, is when we know the array to be sorted is very possibly *almost* sorted, but this is nto the only sorting method which excels in this scenario.
 
 ![bubble sort illustration](https://i.imgur.com/EYqnrMu.png "Bubble Sort Illustration")
 

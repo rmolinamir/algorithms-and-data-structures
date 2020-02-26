@@ -9,7 +9,7 @@ Selection Sort consists of the following pattern:
 - Store the first element as the smallest value you've seen so far.
 - Compare this item to the next item in the array until you find a smaller number.
 - If a smaller number is found, designate that smaller number to be the new minimum, and continue until the end of the array.
-- If the minimum is not the value (index) you initially began with, swap the two values.
+- If the minimum is nto the value (index) you initially began with, swap the two values.
 - Repeat this with the next element until the array is sorted.
 
 Every loop we set the minimum value in the desired position, so we apply the same process with the remaining values and thus reducing the "window" of possible unsorted values. We're shrinking the scope of what we're comparing as we loop through.
@@ -38,7 +38,7 @@ function selectionSort(arr) {
   // - Store the first element as the smallest value you've seen so far.
   // - Compare this item to the next item in the array until you find a smaller number.
   // - If a smaller number is found, designate that smaller number to be the new minimum, and continue until the end of the array.
-  // - If the minimum is not the value (index) you initially began with, swap the two values.
+  // - If the minimum is nto the value (index) you initially began with, swap the two values.
   // - Repeat this with the next element until the array is sorted.
   for (let i = 0; i < arr.length; i += 1) {
     let smallestNumber = i;

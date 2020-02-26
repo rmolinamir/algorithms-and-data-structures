@@ -1,7 +1,7 @@
 /**
  * Nodes for the `SinglyLinkedList` class.
  * @member {Node} val - Piece of data.
- * @member {Node} next - Referene ot the next `Node`.
+ * @member {Node} next - Referene to the next `Node`.
  */
 class Node {
   /**
