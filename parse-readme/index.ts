@@ -91,7 +91,7 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
       .replace(' ', '-');
     const result = await axios({ url: src, responseType: 'stream' });
     // Downloading the images, then saving them.
-    await new Promise((resolve, reject) => {
+    await new Promise(resolve => {
       result.data
         .pipe(createWriteStream(
           join(saveDirectory, filename),
@@ -100,7 +100,9 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
           },
         ))
         .on('finish', resolve)
-        .on('error', (e: Error) => reject(e.message));
+        .on('error', (e: Error) => {
+          throw new Error(e.message);
+        });
     });
   }
 }
