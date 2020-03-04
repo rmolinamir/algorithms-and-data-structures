@@ -11,6 +11,7 @@ import {
 import marked from 'marked';
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
+import { Spinner } from 'cli-spinner';
 
 interface IImage {
   alt: string
@@ -18,6 +19,8 @@ interface IImage {
   src: string
 }
 
+// CLI Spinner ;)
+const spinner = new Spinner('Fetching images...');
 const { readdir } = promises;
 
 /**
@@ -106,10 +109,14 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
  * Recursively downloads all images then saves
  */
 async function recursiveMarkdownImageSearch() {
+  spinner.start();
+  let index = 0;
   for await (const file of getFiles('..')) {
+    index ++;
     const parsedFile = file.split('.');
     const fileFormat = parsedFile[parsedFile.length - 1];
     if (fileFormat === 'md') {
+      spinner.setSpinnerString(index);
       const images = findImagesInMarkdown(file);
       const directory = file.split('\\');
       const saveDirectory = directory
@@ -118,6 +125,10 @@ async function recursiveMarkdownImageSearch() {
       await downloadImages(images, saveDirectory);
     }
   }
+  spinner.setSpinnerString('slow');
+  spinner.stop();
 }
 
-recursiveMarkdownImageSearch();
+recursiveMarkdownImageSearch().then(() => {
+  console.log('\nDone! Exiting Node.js...');
+});

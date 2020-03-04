@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cli-spinner": "^0.2.0",
     "@types/jsdom": "^16.1.0",
     "@types/marked": "^0.7.2",
     "@types/node": "^13.7.7",
     "axios": "^0.19.2",
+    "cli-spinner": "^0.2.10",
     "jsdom": "^16.2.0",
     "marked": "^0.8.0"
   }
