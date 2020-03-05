@@ -248,7 +248,7 @@ function naiveStringSearch(long, short) {
       const longChar = long[i + j];
       const shortChar = short[j];
       if (longChar !== shortChar) { break; }
-      if (j === short.length - 1) { count += 1; } 
+      if (j === short.length - 1) { count += 1; }
     }
   }
   return count;
