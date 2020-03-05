@@ -183,6 +183,6 @@ There's a bit of controversy around the Radix Sort Big O notation. But here's th
 
 ![radix sort big o notation](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/17.%20Singly%20Linked%20Lists/images/Singly-Linked%20Lists%20Big%20O%20Notation_singly%20linked%20lists%20big%20o%20notation.png?raw=true "Radix Sort Big O Notation")
 
-The best time complexity for the worst, best, and average case scenario is `O(nk)`, where `n` is the amount of numbers we're sorting and `k` is the amount of digits of the largest number. If we have really, really long digits, then it's an important factor to consider. 
+The best time complexity for the worst, best, and average case scenario is `O(nk)`, where `n` is the amount of numbers we're sorting and `k` is the amount of digits of the largest number. If we have really, really long digits, then it's an important factor to consider.
 
 There are also other considerations, which are the cause of controversy for the notation. For example, if all of the numbers of `n` are all unique and randomly distributed data, then `w` has to be at least `log n` to be able to store those numbers in memory. This results in `n * log n` complexity. This is quite a rabit hole of counter arguments. In conclusion though, Radix Sort theoretically can be faster than any of the comparison sorts.
