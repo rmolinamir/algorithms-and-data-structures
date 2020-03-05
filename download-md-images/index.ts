@@ -114,10 +114,11 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
 }
 
 /**
- * Recursively downloads all images then saves
+ * Downloads all images then saves them in an images directory
+ * at the same scope of the found markdown file.
  * @param {string} searchDirectory - Search directory.
  */
-async function recursivelyDownloadMarkdownImages(searchDirectory = __dirname) {
+async function downloadMarkdownImages(searchDirectory = __dirname) {
   spinner.start();
   let index = 0;
   for await (const file of getFiles(searchDirectory)) {
@@ -139,6 +140,6 @@ async function recursivelyDownloadMarkdownImages(searchDirectory = __dirname) {
 }
 
 // TODO: Parse process.argv to parameterize the search directories.
-recursivelyDownloadMarkdownImages('..').then(() => {
+downloadMarkdownImages('..').then(() => {
   console.log('\nDone! Exiting Node.js...');
 });
