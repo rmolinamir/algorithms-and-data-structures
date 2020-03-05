@@ -213,7 +213,7 @@ The following two elements to step relationships can be written as:
 
 Every time we **double** the size of the array (the size of `n`) we would be adding only 1 extra step, which is really good.
 
-![different big O complexities comparison](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/7.%20Searching/images/Comparison-of%20the%20different%20types%20of%20Big%20O%20complexities_different%20big%20O%20complexities%20comparison.png?raw=true "Comparison of the different types of Big O complexities")
+![different big O complexities comparison](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/07.%20Searching/images/Comparison-of%20the%20different%20types%20of%20Big%20O%20complexities_different%20big%20O%20complexities%20comparison.png?raw=true "Comparison of the different types of Big O complexities")
 
 ## Naive String Search
 
