@@ -118,7 +118,7 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
  * at the same scope of the found markdown file.
  * @param {string} searchDirectory - Search directory.
  */
-async function downloadMarkdownImages(searchDirectory = __dirname) {
+async function downloadMarkdownImages(searchDirectory: string = __dirname) {
   spinner.start();
   let index = 0;
   for await (const file of getFiles(searchDirectory)) {
