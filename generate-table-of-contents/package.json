@@ -1,0 +1,12 @@
+{
+  "name": "generate-table-of-contents",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
