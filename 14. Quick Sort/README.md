@@ -124,7 +124,7 @@ console.log(quickSort([-152, 0, 124, 4, -5, 26, 23, 1, 27, 44, 17, 47, 39, 42, 4
 
 The best and average case of quick sort time complexities are of `O(n * log n)`, while the worst case is `O(n^2)`. The space complexity is `O(log n)`
 
-![quick sort big o](https://i.imgur.com/sqRqYrg.png "Quick Sort Big O")
+![quick sort big o](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/14.%20Quick%20Sort/images/Quick-Sort%20Big%20O_quick%20sort%20big%20o.png?raw=true "Quick Sort Big O")
 
 The best case and average case scenarios of quick sort happen when the pivot is chosen as the average, or close to the average value of the array. Doing this will result in logarithmic decompositions because quick sort would end splitting the array in two halves.
 

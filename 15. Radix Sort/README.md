@@ -181,7 +181,7 @@ console.log(radixSort([1, 53, 31, 129, 3131, 358, 9991, 10, 31])); // [1, 10, 31
 
 There's a bit of controversy around the Radix Sort Big O notation. But here's the generally acepted notation:
 
-![radix sort big o notation](https://i.imgur.com/f9wBRUy.png "Radix Sort Big O Notation")
+![radix sort big o notation](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/17.%20Singly%20Linked%20Lists/images/Singly-Linked%20Lists%20Big%20O%20Notation_singly%20linked%20lists%20big%20o%20notation.png?raw=true "Radix Sort Big O Notation")
 
 The best time complexity for the worst, best, and average case scenario is `O(nk)`, where `n` is the amount of numbers we're sorting and `k` is the amount of digits of the largest number. If we have really, really long digits, then it's an important factor to consider. 
 

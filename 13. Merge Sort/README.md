@@ -8,7 +8,7 @@
 
 It begins by splitting the array into two halves, then proceeds to repeatedly split the arrays until a group arrays of 1 element at most is reached. Then, it sorts the previously split arrays of 2 elements, and then it starts to merge all of the split arrays back into one while also sorting it. Here's a visual example:
 
-![merge sort](https://i.imgur.com/tLDCGx5.png "Merge Sort")
+![merge sort](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/13.%20Merge%20Sort/images/Merge-Sort_merge%20sort.png?raw=true "Merge Sort")
 
 ## Merging Arrays
 
@@ -92,7 +92,7 @@ function mergeSort(arr) {
 }
 ```
 
-![merge sort visual breakdown](https://i.imgur.com/tLDCGx5.png "Merge Sort Visual Breakdown")
+![merge sort visual breakdown](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/13.%20Merge%20Sort/images/Merge-Sort%20Visual%20Breakdown_merge%20sort%20visual%20breakdown.png?raw=true "Merge Sort Visual Breakdown")
 
 ## Merge Sort Big O
 

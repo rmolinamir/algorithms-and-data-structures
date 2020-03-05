@@ -7,7 +7,7 @@
 - All have average time complexities that are quadratic.
 - We can do better, but we need more complex algorithms.
 
-![big O of sorting algorithms](https://i.imgur.com/dHfWGUU.png "Big O of Sorting Algorithms")
+![big O of sorting algorithms](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/11.%20Comparing%20Bubble,%20Selection,%20and%20Insertion%20Sort/images/Big-O%20of%20Sorting%20Algorithms_big%20O%20of%20sorting%20algorithms.png?raw=true "Big O of Sorting Algorithms")
 
 In worst-case scenarios, all of these algorithms have time complexities of `O(n^2)`.
 In all scenarios, all of these algorithms have space complexities of `O(1)`.

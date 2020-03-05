@@ -2,7 +2,7 @@
 
 Similar to bubble sort, but instead of placing the largest values into a sorted position, it places the smaller values into a sorted position. It's worth noting that this algorithm is really bad for nearly sorted data.
 
-![selection sort example](https://i.imgur.com/F3uJnnD.png "Selection Sort Visual Example")
+![selection sort example](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/9.%20Selection%20Sort/images/Selection-Sort%20Visual%20Example_selection%20sort%20example.png?raw=true "Selection Sort Visual Example")
 
 Selection Sort consists of the following pattern:
 

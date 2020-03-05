@@ -123,7 +123,7 @@ Counting the amount of operations can be tricky, depending on what is counted, t
 
 Regardless of the exact number, the number of operations grows roughly proportionally with `n`, while the first alternative will always be limited to 3 operations. These comparisons and analysis of the oprations & time is known as *time complexity*.
 
-![alternative 1 alternative 2 measurement](https://i.imgur.com/6erFFmK.png "Alternative #1 vs. Alternative #2")
+![alternative 1 alternative 2 measurement](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/2.%20Big%20O%20Notation/images/Alternative-%231%20vs.%20Alternative%20%232_alternative%201%20alternative%202%20measurement.png?raw=true "Alternative #1 vs. Alternative #2")
 
 ## Definition
 
@@ -210,7 +210,7 @@ This function in its most simplified expression is a `O(1)` operation because it
 
 Below is an image comparing the complexity of different Big O notations:
 
-![different big O complexities comparison](https://i.imgur.com/BnDlHoK.png "Comparison of the different types of Big O complexities")
+![different big O complexities comparison](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/2.%20Big%20O%20Notation/images/Alternative-%231%20vs.%20Alternative%20%232_alternative%201%20alternative%202%20measurement.png?raw=true "Comparison of the different types of Big O complexities")
 
 ## Space Complexity
 
@@ -262,7 +262,7 @@ Sometimes big O expressions involve more complex mathematical expressions. One t
 
 Which number to the power of 3 gives us 8?
 
-![logarithm example](https://i.imgur.com/ik6r6pZ.png "Which number to the power of 3 gives us 8?")
+![logarithm example](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/2.%20Big%20O%20Notation/images/Which-number%20to%20the%20power%20of%203%20gives%20us%208_logarithm%20example.png?raw=true "Which number to the power of 3 gives us 8?")
 
 The most common are the binary logarithms (`log 2 (n)`), base 10 logarithms (`log 10 (n)`), and natural logarithms (`log e (n)` or sometimes written as `ln(n)`). In programming, usually only the binary logarithm is involved.
 

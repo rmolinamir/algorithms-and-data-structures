@@ -561,4 +561,4 @@ Searching is `O(n)` at worst case when we're looking for a value. We start from 
 
 Access is the same as removal. It depends on the `index` because we would have to traverse for an `index` amount of times until we reach the desired node to be accessed. At best it's `O(1)`, at worse it's `O(n)`.
 
-![singly linked lists big o notation](https://i.imgur.com/bccdnO5.png "Singly Linked Lists Big O Notation")
+![singly linked lists big o notation](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/17.%20Singly%20Linked%20Lists/images/Singly-Linked%20Lists%20Big%20O%20Notation_singly%20linked%20lists%20big%20o%20notation.png?raw=true "Singly Linked Lists Big O Notation")
