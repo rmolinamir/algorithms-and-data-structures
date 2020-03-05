@@ -6,6 +6,8 @@ import {
 import {
   createWriteStream,
   readFileSync,
+  mkdirSync,
+  existsSync,
   promises,
 } from 'fs';
 import marked from 'marked';
@@ -92,9 +94,13 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
     const result = await axios({ url: src, responseType: 'stream' });
     // Downloading the images, then saving them.
     await new Promise(resolve => {
+      // Check if path exists first, if not then create the images dir.
+      if (!existsSync(join(saveDirectory, 'images'))) {
+        mkdirSync(join(saveDirectory, 'images'));
+      }
       result.data
         .pipe(createWriteStream(
-          join(saveDirectory, filename),
+          join(saveDirectory, 'images', filename),
           {
             flags: 'w+',
           },
@@ -109,11 +115,12 @@ async function downloadImages(images: IImage[], saveDirectory: string) {
 
 /**
  * Recursively downloads all images then saves
+ * @param {string} searchDirectory - Search directory.
  */
-async function recursiveMarkdownImageSearch() {
+async function recursivelyDownloadMarkdownImages(searchDirectory = __dirname) {
   spinner.start();
   let index = 0;
-  for await (const file of getFiles('..')) {
+  for await (const file of getFiles(searchDirectory)) {
     index ++;
     const parsedFile = file.split('.');
     const fileFormat = parsedFile[parsedFile.length - 1];
@@ -131,6 +138,7 @@ async function recursiveMarkdownImageSearch() {
   spinner.stop();
 }
 
-recursiveMarkdownImageSearch().then(() => {
+// TODO: Parse process.argv to parameterize the search directories.
+recursivelyDownloadMarkdownImages('..').then(() => {
   console.log('\nDone! Exiting Node.js...');
 });
