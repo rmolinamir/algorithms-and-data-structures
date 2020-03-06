@@ -121,7 +121,7 @@ pop() {
 }
 ```
 
-### Stack
+### Stack Class
 
 ```js
 /**
