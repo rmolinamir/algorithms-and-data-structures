@@ -4,7 +4,7 @@
 
 A data structure that consists of nodes in a parent/child relationship. We basically end up with branches where each node can end up with one or multiple or zero nodes, and each node can keep splitting, so multiple branches can be created.
 
-![tree and its branching nodes](https://i.imgur.com/GEDikON.png "Tree and its branching Nodes")
+![tree and its branching nodes](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/21.%20Trees/images/Tree-and%20its%20branching%20Nodes_tree%20and%20its%20branching%20nodes.png?raw=true "Tree and its branching Nodes")
 
 ## Contrast between Trees and Lists
 
