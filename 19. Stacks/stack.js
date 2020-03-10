@@ -7,6 +7,9 @@ class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
+    // Bindings
+    this.push = this.push.bind(this);
+    this.pop = this.pop.bind(this);
   }
 }
 

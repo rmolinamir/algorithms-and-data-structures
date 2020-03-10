@@ -7,6 +7,9 @@ class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
+    // Bindings
+    this.enqueue = this.enqueue.bind(this);
+    this.dequeue = this.dequeue.bind(this);
   }
 }
 

@@ -134,6 +134,9 @@ class Queue {
     this.first = null;
     this.last = null;
     this.size = 0;
+    // Bindings
+    this.enqueue = this.enqueue.bind(this);
+    this.dequeue = this.dequeue.bind(this);
   }
 
   /**

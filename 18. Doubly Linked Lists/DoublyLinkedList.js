@@ -35,8 +35,8 @@ class DoublyLinkedList {
     this.get = this.get.bind(this);
     this.set = this.set.bind(this);
     this.insert = this.insert.bind(this);
-    // this.remove = this.remove.bind(this);
-    // this.reverse = this.reverse.bind(this);
+    this.remove = this.remove.bind(this);
+    this.reverse = this.reverse.bind(this);
   }
 
   /**
