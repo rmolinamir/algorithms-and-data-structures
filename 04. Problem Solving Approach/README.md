@@ -148,10 +148,8 @@ function chartCount(str) {
   const result = {};
   // Loop over every character in the string
   for (let i = 0; i < str.length; i++) {
-    // TODO: transform char into a lowercase alphanumeric character
     const char = str[i];
     // If the char is a number/letter AND a key in object, add one to count
-    // TODO: check if char is alphanumeric
     if (result[char] > 0) {
       result[char]++;
     // Else if the char is a number/letter, add the lowercase char and set value to 1
@@ -173,7 +171,6 @@ function chartCount(str) {
   for (let i = 0; i < str.length; i++) {
     const char = str[i.toLowerCase()];
     // If the char is a number/letter AND a key in object, add one to count
-    // TODO: check if char is alphanumeric **(still pending)**
     if (result[char] > 0) {
       result[char]++;
     // Else if the char is a number/letter, add the lowercase char and set value to 1
