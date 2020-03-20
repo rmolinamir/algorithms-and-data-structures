@@ -1,4 +1,4 @@
-# Graph
+# Graphs
 
 Graphs are used in many social networks, any time users are modelled, recommendation engines, or advertisements based off on data, graphs are used.
 
@@ -141,7 +141,7 @@ addEge(firstVertexKey, secondVertexKey) {
     this.adjacencyList[secondVertexKey]
   );
   // Checking if the edges already exist should also be done,
-  // but let's ignore it for now.
+  // but let's for learning purposes.
   if (shouldAddEdge) {
     this.adjacencyList[firstVertexKey].push(secondVertexKey);
     this.adjacencyList[secondVertexKey].push(firstVertexKey);
@@ -166,7 +166,7 @@ removeEdge(firstVertexKey, secondVertexKey) {
     this.adjacencyList[secondVertexKey]
   );
   // Checking if the edges already exist should also be done,
-  // but let's ignore it for now.
+  // but let's for learning purposes.
   if (shouldAddEdge) {
     this.adjacencyList[firstVertexKey] = this.adjacencyList[firstVertexKey]
       .filter(key => key !== secondVertexKey);

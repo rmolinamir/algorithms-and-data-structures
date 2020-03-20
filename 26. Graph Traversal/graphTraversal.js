@@ -26,7 +26,7 @@ class Graph {
       this.adjacencyList[secondVertexKey]
     );
     // Checking if the edges already exist should also be done,
-    // but let's ignore it for now.
+    // but let's for learning purposes.
     if (shouldAddEdge) {
       this.adjacencyList[firstVertexKey].push(secondVertexKey);
       this.adjacencyList[secondVertexKey].push(firstVertexKey);
@@ -45,7 +45,7 @@ class Graph {
       this.adjacencyList[secondVertexKey]
     );
     // Checking if the edges already exist should also be done,
-    // but let's ignore it for now.
+    // but let's for learning purposes.
     if (shouldAddEdge) {
       this.adjacencyList[firstVertexKey] = this.adjacencyList[firstVertexKey]
         .filter(key => key !== secondVertexKey);
@@ -67,5 +67,60 @@ class Graph {
       });
       delete this.adjacencyList[key];
     }
+  }
+
+  /**
+   * Depth First Recursive Traversal of the graph. Returns every
+   * vertex that is connected (directly or indirectly) to the starting
+   * vertex.
+   * @param {String} key - Vertex identifier.
+   */
+  depthFirstTraversal(key) {
+    const vertices = [];
+    const resultsCache = {}; // Cache hash table.
+    const traverse = (vertex) => {
+      const edges = this.adjacencyList[vertex];
+      vertices.push(vertex);
+      if (!edges || edges.length === 0) {
+        return;
+      }
+      resultsCache[vertex] = null;
+      edges.forEach(connectedVertexKey => {
+        // If the connected vertex is not in the results list (not visited)
+        if (!(connectedVertexKey in resultsCache)) {
+          traverse(connectedVertexKey);
+        }
+      });
+    }
+    traverse(key);
+    return vertices;
+  }
+
+  /**
+   * Breath First Recursive Traversal of the graph. Returns every
+   * vertex that is connected (directly or indirectly) to the starting
+   * vertex.
+   * @param {String} key - Vertex identifier.
+   */
+  breathFirstTraversal(key) {
+    const vertices = [];
+    const resultsCache = {}; // Cache hash table.
+    const queue = [key];
+    resultsCache[key] = null; // Caching the first vertex as visited.
+    while (queue.length) {
+      const vertex = queue.shift();
+      vertices.push(vertex);
+      const edges = this.adjacencyList[vertex];
+      if (edges && edges.length) {
+        edges.forEach(connectedVertexKey => {
+          // If the connected vertex is not in the results list (not visited)
+          if (!(connectedVertexKey in resultsCache)) {
+            resultsCache[connectedVertexKey] = null; // Caching the neighbors as visited.
+            queue.push(connectedVertexKey);
+          }
+        });
+      }
+    }
+    return vertices;
   }
 }
