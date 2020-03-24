@@ -1,4 +1,4 @@
-class Graph {
+class WeightedGraph {
   constructor() {
     this.adjacencyList = {};
   }
@@ -19,7 +19,7 @@ class Graph {
    * @param {String} firstVertexKey  - First Vertex identifier.
    * @param {String} secondVertexKey  - Second Vertex identifier.
    */
-  addEge(firstVertexKey, secondVertexKey) {
+  addEge(firstVertexKey, secondVertexKey, weight) {
     // Checking if the vertices exist in the list.
     const shouldAddEdge = (
       this.adjacencyList[firstVertexKey] &&
@@ -28,8 +28,8 @@ class Graph {
     // Checking if the edges already exist should also be done,
     // but let's for learning purposes.
     if (shouldAddEdge) {
-      this.adjacencyList[firstVertexKey].push(secondVertexKey);
-      this.adjacencyList[secondVertexKey].push(firstVertexKey);
+      this.adjacencyList[firstVertexKey].push({ node: secondVertexKey, weight });
+      this.adjacencyList[secondVertexKey].push({ node: firstVertexKey, weight });
     }
   }
 
@@ -48,9 +48,9 @@ class Graph {
     // but let's for learning purposes.
     if (shouldAddEdge) {
       this.adjacencyList[firstVertexKey] = this.adjacencyList[firstVertexKey]
-        .filter(key => key !== secondVertexKey);
+        .filter(({ node: key }) => key !== secondVertexKey);
       this.adjacencyList[secondVertexKey] = this.adjacencyList[secondVertexKey]
-        .filter(key => key !== firstVertexKey);
+        .filter(({ node: key }) => key !== firstVertexKey);
     }
   }
 
@@ -63,7 +63,7 @@ class Graph {
     if (this.adjacencyList[key]) {
       this.adjacencyList[key].forEach(connectedVertexKey => {
         this.adjacencyList[connectedVertexKey] = this.adjacencyList[connectedVertexKey]
-          .filter(vertexKey => vertexKey !== key);
+          .filter(({ node: vertexKey }) => vertexKey !== key);
       });
       delete this.adjacencyList[key];
     }
