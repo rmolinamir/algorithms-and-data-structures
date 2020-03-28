@@ -27,7 +27,7 @@ A problem is said to have an optimal substructure if the optimal solution for a 
 
 An example to illustrate this principle is the calculation of the shortest path algorithm between two nodes:
 
-![shortest path](https://i.imgur.com/XVFJyje.png "Shortest Path")
+![shortest path](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/28.%20Dynamic%20Programming/images/Shortest-Path_shortest%20path.png?raw=true "Shortest Path")
 
 We want to find the shortest path from A to D, which is A -> B -> C -> D. The shortest path from A to D can be broken down into its substructures. Such as:
 

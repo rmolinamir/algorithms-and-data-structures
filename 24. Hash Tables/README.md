@@ -43,7 +43,7 @@ Hash functions have uses all over the world over the internet, to protect data, 
 
 There are languages that expose built-in hash functions such as Python, which allows us to pass data, then we get a returned hashed value which is nothing more than an unique numeric identifier related to the passed string.
 
-![hash in python](https://i.imgur.com/uu6d8E3.png "Hash in Python")
+![hash in python](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/24.%20Hash%20Tables/images/Hash-in%20Python_hash%20in%20python.png?raw=true "Hash in Python")
 
 In most cases in a hash function we can't work backwards from the hash alone back to the value, so it's meaningless on its own.
 
@@ -125,11 +125,11 @@ When we have a hash function and we have a lot of data, it becomes very likely t
 
 With *separate chaining*, at each index in our array we store values using a more sophisticated data structure (e.g. an array or a linked list). This allows us to store multiple key-value pairs at the same index (think of a nested array at the same index).
 
-![separate chaining](https://i.imgur.com/TuLRgxW.png "Separate Chaining")
+![separate chaining](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/24.%20Hash%20Tables/images/Separate-Chaining_separate%20chaining.png?raw=true "Separate Chaining")
 
 With *linear probing*, when a collision occurs, the value is stored at the next empty slot, which avoid having nested structures. The problem with this strategy happens when we run out of space to store values, e.g. if the table size is 8191 (prime number), then it will hold a maximum of 8191 key-value pairs unless combined with other strategies.
 
-![linear probing](https://i.imgur.com/3CyD2GP.png "Linear Probing")
+![linear probing](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/24.%20Hash%20Tables/images/Linear-Probing_linear%20probing.png?raw=true "Linear Probing")
 
 ## A Hash Table Class
 

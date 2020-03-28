@@ -10,7 +10,7 @@ Graphs are used in many social networks, any time users are modelled, recommenda
 
 In simpler terms, a graph is a collection of nodes. A set of nodes together with a set of pairs of these connections.
 
-![graph](https://i.imgur.com/pCyYDFD.png "Graph")
+![graph](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/25.%20Graphs/images/Graph_graph.png?raw=true "Graph")
 
 Graphs are used in social networks, locations and mapping (GPS), routing algorithms, visual hierarchy, file system optimizations, **everywhere**.
 
@@ -48,7 +48,7 @@ Storing graphs is not easy. But if we break it down, what we really need to stor
 
 A matrix is a two dimensional structure usually implemented with nested arrays, but not always, where information is basically stored in rows and columns. Graph connections can actually be represented using a matrix, like this:
 
-![adjacency matrix](https://i.imgur.com/rdTzSRy.png "Adjacency Matrix")
+![adjacency matrix](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/25.%20Graphs/images/Adjacency-Matrix_adjacency%20matrix.png?raw=true "Adjacency Matrix")
 
 The way it is read, is that binary value between any two vertices respective to a row and column represents if there is a connection. The value `1` represents that there is a connection, while the value `0` represents that there isn't. Also note that as it is, this matrix is storing undirected graph edges, but it is also possible to store directed graph edges by storing tuples of binary values instead of raw binary values, e.g. `[1, 0]` where the row would have a connection, but the column wouldn't.
 
@@ -56,11 +56,11 @@ The way it is read, is that binary value between any two vertices respective to 
 
 Adjacency Lists are stored differently and are commonly used to store undirected graphs. The way they work is that the vertices are stored in a list or in a hash table (depending on the value of the vertices) with nested arrays that represent the edges from the respective vertices. If the vertices are numbers, they can be stored in an array so that their value will match the index in which they are stored in the array, as shown below. Every element inside the array is also a nested array composed of more numbers which are indexes representing the connections from the "parent" index of the vertex.
 
-![adjacency list of numbers](https://i.imgur.com/rdTzSRy.png "Adjacency List of Numbers")
+![adjacency list of numbers](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/25.%20Graphs/images/Adjacency-List%20of%20Numbers_adjacency%20list%20of%20numbers.png?raw=true "Adjacency List of Numbers")
 
 However, sometimes the values might be too far apart, or they might not be numbers, so in order to store them, hash tables can be used, as shown below:
 
-![adjacency list](https://i.imgur.com/qjkcTKl.png "Adjacency List")
+![adjacency list](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/25.%20Graphs/images/Adjacency-List_adjacency%20list.png?raw=true "Adjacency List")
 
 ## Comparing and Contrasting Graph Traversal Algorithms
 
