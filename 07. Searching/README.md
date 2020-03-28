@@ -338,11 +338,15 @@ After the pattern table is built, it is time to loop through the string. To loop
 
 ```js
 /**
+ * The KMP algorithm is a simple substring search algorithm and therefore its purpose is to search for the existence
+ * of a substring within a string. To do this, it uses information based on previous matches and failures, taking
+ * advantage of the information that the word to search itself contains, to determine where the next existence
+ * could occur, without having to analyze the text more than once.
  * @param {string} text
  * @param {string} word
  * @return {number}
  */
-export default function knuthMorrisPratt(text, word) {
+function knuthMorrisPratt(text, word) {
   if (word.length === 0) {
     return 0;
   }
@@ -366,6 +370,7 @@ export default function knuthMorrisPratt(text, word) {
   }
   return -1;
 }
+
 
 const test = 'potential';
 
