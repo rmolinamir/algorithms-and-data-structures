@@ -1,5 +1,3 @@
-# Algorithms and Data Structures
-
 - [01. Introduction](https://github.com/rmolinamir/algorithms-and-data-structures/tree/master/01.%20Introduction#readme "01. Introduction")
 - [02. Big O Notation](https://github.com/rmolinamir/algorithms-and-data-structures/tree/master/02.%20Big%20O%20Notation#readme "02. Big O Notation")
 - [03. Analyzing Performance of Arrays and Objects](https://github.com/rmolinamir/algorithms-and-data-structures/tree/master/03.%20Analyzing%20Performance%20of%20Arrays%20and%20Objects#readme "03. Analyzing Performance of Arrays and Objects")
