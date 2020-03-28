@@ -261,9 +261,118 @@ console.log(naiveStringSearch('lorie loled', 'lor')); // 1
 console.log(naiveStringSearch('lorie loled', 'lorie')); // 1
 ```
 
+Naive string searching can take a lot of time. This is because as the algorithm iterates through the long string, it compares the current character to the first character of the short string, and if there is a match it proceeds to compare the rest of the characters one by one to the consecutive characters of the long string. In the worst case, this algorithm will be of `O(m * n)` where `m` and `n` are the lengths of the long string and short string respectively, which is pretty slow. This is where the Knuth-Morris-Pratt (KMP) search algorithm comes in.
+
 ## KMP String Searching
 
-WIP.
+The aim of the KMP algorithm is to not go backwards as done in the naive string search algorithm. The way it works is by doing comparisons with suffix and prefix information from the search string to the long string as it iterates.
 
-[Video explanation.](https://www.youtube.com/watch?v=BXCEFAzhxGY)
-[Written explanation.](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/11273112#questions/8932824)
+### The Pattern Table
+
+To compare suffixes and prefixes the KMP algorithm builds a table of jump lengths or pattern table with a time complexity of `O(n)` where `n` is the length of the short/tested string. This table works by iterating through the search string and assigning each character a jump length depending on the pattern of the string.
+
+The jump length is calculated as the algorithm iterates through the search string. As it iterates, the algorithm will keep track of two pointers, `j` and `i`, where `i` represents the suffix index or current character and `j` represents the prefix index or "jumps", and both start at `0`. The algorithm then determines if there is a match or if there is no match as it iterates:
+
+- If there is a match, the jump length that each character is assigned equals the index of `i` plus 1 (`i + 1`) of the previously matched character, then it adds 1 to both `i` and `j`.
+- If there is no match, then `j` will "jump back" by the most recent amount of jump length until there is a match or `j` is 0, then the algorithm moves forward by adding 1 to `i` to evaluate the next character.
+
+- Example #1:
+
+| Characters           | a | b | c | d | a | b | c | a |
+|----------------------|---|---|---|---|---|---|---|---|
+| Index                | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| Jump Length          | 0 | 0 | 0 | 0 | 1 | 2 | 3 | 1 |
+
+- Example #2:
+
+| Characters           | a | a | b | a | a | b | a | a | a |
+|----------------------|---|---|---|---|---|---|---|---|---|
+| Index                | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| Jump Length          | 0 | 1 | 0 | 1 | 2 | 3 | 4 | 5 | 2 |
+
+The idea of using a pattern table is to determine if we need to go backwards while searching through the long string by comparing the current characters to the pattern table.
+
+```js
+/**
+ * Pattern or jump table.
+ * @param {string} word
+ * @return {number[]}
+ */
+function buildPatternTable(word) {
+  const patternTable = [0];
+  let prefixIndex = 0;
+  let suffixIndex = 1;
+  while (suffixIndex < word.length) {
+    if (word[prefixIndex] === word[suffixIndex]) {
+      patternTable[suffixIndex] = prefixIndex + 1;
+      suffixIndex += 1;
+      prefixIndex += 1;
+    } else if (prefixIndex === 0) {
+      patternTable[suffixIndex] = 0;
+      suffixIndex += 1;
+    } else {
+      prefixIndex = patternTable[prefixIndex - 1];
+    }
+  }
+  return patternTable;
+}
+```
+
+### The Search
+
+After the pattern table is built, it is time to loop through the string. To loop through the string, a text index and a word index or pointers are initiated. A match will be considered to happen whenever the text char at the text index and the word char at the word index are the same. Then what happens is the following:
+
+- Loop while the text index is less than the text length.
+  - If there is a character match, it will work similarly to the naive string search:
+    - Check if the word string is completely included in the text by comparing the word index to the word length. If there is, then return the initial index where the match started to happen, or `(textIndex - word.length) + 1`.
+    - If there is no complete match of the word but the character matches, both the word and text pointers are increased by 1.
+  - If there are no character matches:
+    - Check if the word index is higher than 0. This means there were previous matches. This is why the pattern table is important and avoids jumping backwards.
+      - If it's higher than 0, then the word index will equal the pattern table's element at word index minus 1, or `patternTable[wordIndex - 1]`, then continue to the next loop. This is to take advantages of suffixes and prefixes in case the next `wordIndex` characters also match the word, because if they do, then there is no need to go back as we know they would not be a match anyway.
+      - If it's 0, then simply reset the word index equal to zero and add 1 to the text index to continue the search.
+- Return -1 if there are no matches.
+
+```js
+/**
+ * @param {string} text
+ * @param {string} word
+ * @return {number}
+ */
+export default function knuthMorrisPratt(text, word) {
+  if (word.length === 0) {
+    return 0;
+  }
+  let textIndex = 0;
+  let wordIndex = 0;
+  const patternTable = buildPatternTable(word);
+  while (textIndex < text.length) {
+    if (text[textIndex] === word[wordIndex]) {
+      // We've found a match.
+      if (wordIndex === word.length - 1) {
+        return (textIndex - word.length) + 1;
+      }
+      wordIndex += 1;
+      textIndex += 1;
+    } else if (wordIndex > 0) {
+      wordIndex = patternTable[wordIndex - 1];
+    } else {
+      wordIndex = 0;
+      textIndex += 1;
+    }
+  }
+  return -1;
+}
+
+const test = 'potential';
+
+const string = `This fact implies that the loop can execute at most 2n times. For, in each iteration, it executes one of the two branches in the loop. The first branch invariably increases i and does not
+change m, so that the index m + i of the currently scrutinized character of S is increased. The second
+branch adds i - T[i] to m, and as we have seen, this is always a positive number. Thus the location m
+of the beginning of the current potential match is increased. Now, the loop ends if m + i = n;
+therefore each branch of the loop can be reached at most k times, since they respectively increase
+either m + i or m, and m = m + i: if m = n, then certainly m + i = n, so that since it increases by
+unit increments at most, we must have had m + i = n at some point in the past, and therefore either
+way we would be done.`;
+
+console.log('knuthMorrisPratt(string, test): ', knuthMorrisPratt(string, test)) // 429
+```
