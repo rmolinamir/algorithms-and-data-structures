@@ -263,7 +263,11 @@ console.log(naiveStringSearch('lorie loled', 'lorie')); // 1
 
 Naive string searching can take a lot of time. This is because as the algorithm iterates through the long string, it compares the current character to the first character of the short string, and if there is a match it proceeds to compare the rest of the characters one by one to the consecutive characters of the long string. In the worst case, this algorithm will be of `O(m * n)` where `m` and `n` are the lengths of the long string and short string respectively, which is pretty slow. This is where the Knuth-Morris-Pratt (KMP) search algorithm comes in.
 
-## KMP String Searching
+## KMP String Searching Algorithm
+
+The KMP algorithm is a simple substring search algorithm and therefore its purpose is to search for the existence of a substring within a string. To do this, it uses information based on previous matches and failures, taking advantage of the information that the word to search itself contains, to determine where the next existence could occur, without having to analyze the text more than once.
+
+The algorithm was originally developed by Donald Knuth and Vaughan Pratt and independently by James H. Morris in 1977, but they were published together by all three.
 
 The aim of the KMP algorithm is to not go backwards as done in the naive string search algorithm. The way it works is by doing comparisons with suffix and prefix information from the search string to the long string as it iterates.
 

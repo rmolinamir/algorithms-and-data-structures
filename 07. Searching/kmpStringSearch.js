@@ -23,6 +23,10 @@ function buildPatternTable(word) {
 }
 
 /**
+ * The KMP algorithm is a simple substring search algorithm and therefore its purpose is to search for the existence
+ * of a substring within a string. To do this, it uses information based on previous matches and failures, taking
+ * advantage of the information that the word to search itself contains, to determine where the next existence
+ * could occur, without having to analyze the text more than once.
  * @param {string} text
  * @param {string} word
  * @return {number}
