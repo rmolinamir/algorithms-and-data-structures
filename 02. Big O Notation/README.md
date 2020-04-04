@@ -1,5 +1,12 @@
 # Big O Notation
 
+## TL;DR
+
+- To analyze the performance of an algorithm, we use Big O Notation.
+- Big O Notation can give us a high level understanding of the time or space complexity of an algorithm.
+- Big O Notation doesn't care about precision, only about general trends (linear, quadratic, constant, et al).
+- The time or space complexity (as measured by Big O) depends only on the algorithm, nto the hardware used to run the algorithm.
+
 ## Introduction
 
 A system which consists in generalizing code to talk about it, measure its performance, and compare it to other pieces of code. It is very useful for discussing trade-offs between different approaches to solve a problem.
@@ -11,11 +18,11 @@ A system which consists in generalizing code to talk about it, measure its perfo
 - More readable?
 - Brevity?
 
-All of these are valid concerns, it depends on the situation. Most people would agree the first too are often more important than something like readability and brevity. Unfortunately, the first too can often come at the expense of readability.
+All of these are valid concerns, it depends on the situation. Most people would agree the first too are often more important than something like readability and brevity. Unfortunately, the first two often come at the expense of readability.
 
 ## Add up to `n` functions comparison
 
-Let's calculate the result of adding up every value of a number `n`, including `n`. Here are two ways of doing this:
+Let's calculate the result of adding up every value of a number `n`, including `n`. Here are just two ways of doing this:
 
 - By using a loop:
 
@@ -64,15 +71,15 @@ If we use this function to measure the previous two alternatives, we get the fol
 
 - By using a loop:
 
-Measurement 1: `Time Elapsed: 0.7303971990048885 seconds.`.
-Measurement 2: `Time Elapsed: 0.7355084000006318 seconds.`.
-Measurement 3: `Time Elapsed: 0.7392646009996533 seconds.`.
+  - Measurement 1: `Time Elapsed: 0.7303971990048885 seconds.`.
+  - Measurement 2: `Time Elapsed: 0.7355084000006318 seconds.`.
+  - Measurement 3: `Time Elapsed: 0.7392646009996533 seconds.`.
 
 - By using a formula:
 
-Measurement 1: `Time Elapsed: 0.00003980100154876709 seconds.`.
-Measurement 2: `Time Elapsed: 0.00002409899979829788 seconds.`.
-Measurement 3: `Time Elapsed: 0.00002479999512434006 seconds.`.
+  - Measurement 1: `Time Elapsed: 0.00003980100154876709 seconds.`.
+  - Measurement 2: `Time Elapsed: 0.00002409899979829788 seconds.`.
+  - Measurement 3: `Time Elapsed: 0.00002479999512434006 seconds.`.
 
 As it's shown, alternative #2 is vastly superior. But there are problems with this approach:
 
@@ -82,11 +89,11 @@ As it's shown, alternative #2 is vastly superior. But there are problems with th
 
 **If not time, then what?**
 
-Rather than counting seconds, which is imprecise, we can measure the number of simple operations the computer has to perform.
+Rather than counting seconds, which is imprecise, we can measure the amount of simple operations the computer has to perform.
 
 ## Counting Operations
 
-- Alternative #2:
+### Alternative #2
 
 ```js
 function addUpTo(n) {
@@ -100,7 +107,7 @@ function addUpTo(n) {
 
 3 operations regardless of the size of `n`.
 
-- Alternative #1:
+### Alternative #1
 
 ```js
 function addUpTo(n) {
@@ -121,13 +128,13 @@ function addUpTo(n) {
 
 Counting the amount of operations can be tricky, depending on what is counted, the number can be as low from `2n` or as high as `5n + 2`.
 
-Regardless of the exact number, the number of operations grows roughly proportionally with `n`, while the first alternative will always be limited to 3 operations. These comparisons and analysis of the oprations & time is known as *time complexity*.
+Regardless of the exact number, the number of operations grows roughly proportionally with `n`, while the first alternative will always be limited to 3 operations. The comparisons and analysis of the operations & time is known as *time complexity*.
 
 ![alternative 1 alternative 2 measurement](https://github.com/rmolinamir/algorithms-and-data-structures/blob/master/02.%20Big%20O%20Notation/images/Alternative-%231%20vs.%20Alternative%20%232_alternative%201%20alternative%202%20measurement.png?raw=true "Alternative #1 vs. Alternative #2")
 
-## Definition
+## What is Big O Notation
 
-Allows us to talk formally about how the runtime of an algorithm grows as the inputs grow. We say an algorithm is `O(f(n))` if the number of simple operations the computer has to do is eventually less than a constant times `f(n)`, as `n` increases.
+Let's talk formally about how the runtime of an algorithm grows as the inputs grow. We say an algorithm is `O(f(n))` if the number of simple operations the computer has to do is eventually less than a constant time `f(n)`, as `n` increases.
 
 In other words:
 
@@ -136,24 +143,20 @@ In other words:
 - `f(n)` could be constant `(f(n) = 1)`.
 - `f(n)` could be many other things.
 
-For example:
-
-- Alternative #2:
+For example, the following function `addUpToFormula` always 3 operations:
 
 ```js
-function addUpTo(n) {
+function addUpToFormula(n) {
   return n * (n + 1) / 2;
 }
 ```
 
-Always 3 operations:
+- Time complexity: **`O(1)`**.
 
-- **`O(1)`**.
-
-- Alternative #1:
+The following function `addUpToLoop` grows proportionally with `n`:
 
 ```js
-function addUpTo(n) {
+function addUpToLoop(n) {
   let total = 0;
   for (let i = 1; i <= n; i++) {
     total += i;
@@ -162,9 +165,9 @@ function addUpTo(n) {
 }
 ```
 
-Number of operations is (eventually) bound by a multiple on `n` (say, `10n`). The coefficient of `n` doesn't matter in this context, what's important is to notice that it scales proportionally with `n`, so we simplify it to:
+The nmber of operations is (eventually) bound by a multiple on `n` (say, `10n`). The coefficient of `n` doesn't matter in this context, what's important is to notice that it scales proportionally with `n`, so we simplify it to:
 
-- **`O(n)`**.
+- Time complexity: **`O(n)`**.
 
 ## Simplifying Big 0 Expressions
 
@@ -272,10 +275,3 @@ In other words, the binary logarithm of a number roughly measures the number of 
 - Certain searching algorithms have logarithmic time complexity.
 - Efficient sorting algorithms involve logarithms.
 - Recursion sometimes involve logarithmic space complexity.
-
-## TL;DR
-
-- To analyze the performance of an algorithm, we use Big O Notation.
-- Big O Notation can give us a high level understanding of the time or space complexity of an algorithm.
-- Big O Notation doesn't care about precision, only about general trends (linear, quadratic, constant, et al).
-- The time or space complexity (as measured by Big O) depends only on the algorithm, nto the hardware used to run the algorithm.
