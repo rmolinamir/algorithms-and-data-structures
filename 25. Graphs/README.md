@@ -196,7 +196,3 @@ removeVertex(key) {
   }
 }
 ```
-
-## Graph Traversal using BFS and DFS
-
-## Compare and Contrast Graph Traversal Algorithms
