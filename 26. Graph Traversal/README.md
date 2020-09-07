@@ -64,11 +64,11 @@ graph.addVertex('0');
 graph.addVertex('1');
 graph.addVertex('2');
 graph.addVertex('3');
-graph.addEge('0', '1');
-graph.addEge('1', '2');
-graph.addEge('2', '3');
-graph.addEge('2', '0');
-graph.addEge('3', '1');
+graph.addEdge('0', '1');
+graph.addEdge('1', '2');
+graph.addEdge('2', '3');
+graph.addEdge('2', '0');
+graph.addEdge('3', '1');
 
 console.log('graph.depthFirstTraversal(\'2\')', graph.depthFirstTraversal('2')); // ['2', '1', '0', '3']
 ```
@@ -123,11 +123,11 @@ graph.addVertex('0');
 graph.addVertex('1');
 graph.addVertex('2');
 graph.addVertex('3');
-graph.addEge('0', '1');
-graph.addEge('1', '2');
-graph.addEge('2', '3');
-graph.addEge('2', '0');
-graph.addEge('3', '1');
+graph.addEdge('0', '1');
+graph.addEdge('1', '2');
+graph.addEdge('2', '3');
+graph.addEdge('2', '0');
+graph.addEdge('3', '1');
 
 console.log('graph.breathFirstTraversal(\'2\')', graph.breathFirstTraversal('2')); // ['2', '1', '3', '0']
 ```
