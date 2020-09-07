@@ -19,7 +19,7 @@ class Graph {
    * @param {String} firstVertexKey  - First Vertex identifier.
    * @param {String} secondVertexKey  - Second Vertex identifier.
    */
-  addEge(firstVertexKey, secondVertexKey) {
+  addEdge(firstVertexKey, secondVertexKey) {
     // Checking if the vertices exist in the list.
     const shouldAddEdge = (
       this.adjacencyList[firstVertexKey] &&
