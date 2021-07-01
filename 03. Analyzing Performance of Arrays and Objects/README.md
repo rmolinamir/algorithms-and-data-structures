@@ -8,7 +8,7 @@
 
 Unordered data structures store in key/value pairs.
 
-- Work well when you don't need order.
+- Works well when you don't need order.
 - When you need fast access/insertion and removal.
 
 ## Big O of Objects
@@ -110,7 +110,6 @@ In short:
 - `slice` returns a copy of part of an array into a new array, and it scales proportionally with how large of a copy or how many elements we are trying to copy.
 - `splice` removes, replaces, or adds new elements at specific indexes. Since re-indexing is involved, it scales proportionally to the number of elements that we have to re-index.
 - `sort` is much more complicated than other methods and its the slower than other methods. It does not loops through the array just once because comparisons are done and we have to move elements around.
-- `
 - `forEach`/`map`/`filter`/`reduce`/etc. These methods simply loop through every element of the array, it just involves acting on every element, so as the size of the array increases so does the number of operations scales proportionally.
 
 ## TL;DR
